@@ -1,0 +1,4 @@
+data
+.DS_Store
+faiss_movie_index/
+__pycache__/
