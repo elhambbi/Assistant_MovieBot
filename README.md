@@ -25,10 +25,11 @@ This assistant is built using:
 - **FAISS** – for fast vector search and retrieval of relevant documents.
 - **HuggingFace Embeddings** – to convert texts into vector representations.
 - **Conversational Memory** – preserves the history of the conversation for contextual continuity.
+- **Gradio** - provides an interactive user interface to chat with the bot.
 
 The dataset is preprocessed from Wikipedia’s movie plot summaries, chunked, embedded, and indexed locally using FAISS for efficient retrieval.
 
-Since the dataset is too large, only the top 1,000 documents are used in this project
+Since the dataset is too large, only the movies released after 1990 are considered in this project (the dataset includes data up to the year 2017).
 
 ---
 
@@ -46,6 +47,8 @@ Since the dataset is too large, only the top 1,000 documents are used in this pr
     ```
 
 Start chatting with your assistant!
+
+*Note:* creating the Faiss index for document retrieval takes some minutes (10 to 15) during the first run. It will be saved and loaded automatically in subsequent runs.
 
 ## Example Output
 
