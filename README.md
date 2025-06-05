@@ -2,8 +2,7 @@
 
 An intelligent movie assistant chatbot powered by a local LLM and real-world data from **Wikipedia**.
 
-The dataset can be downloaded from [Kaggle's Wikipedia Movie Plots dataset](https://www.kaggle.com/datasets/jrobischon/wikipedia-movie-plots).
-
+The dataset is available on HuggingFace [Wikipedia Movie Plots dataset](https://huggingface.co/datasets/vishnupriyavr/wiki-movie-plots-with-summaries)
 
 ---
 
@@ -34,14 +33,13 @@ Since the dataset is too large, only the movies released after 1990 are consider
 ---
 
 ## Running
-1. Dowload the Wikipedia csv dataset from the provided link and put it in data directory.
-2. Create a python environment and install the dependencies:
+1. Create a python environment and install the dependencies:
     ```bash
     pip install -r requirements.txt
     ```
-3. Install `Ollama` and download `gemma2:9b` LLM as explained in the last section of this README file.
+2. Install `Ollama` and download `gemma2:9b` LLM as explained in the last section of this README file.
 
-4. Run the chatbot:
+3. Run the chatbot:
     ```bash
     python main.py
     ```

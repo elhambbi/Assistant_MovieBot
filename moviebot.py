@@ -18,15 +18,14 @@ class MovieBot:
         top_k = 2
         score_threshold = 0.8       # at least 80% similarity between query and retrieved doc
         vector_db_dir = "faiss_movie_index"
-        data_dir = "data/wiki_movie_plots_deduped.csv"
-
-        df = preprocess_data(data_dir)
+        data_path = "vishnupriyavr/wiki-movie-plots-with-summaries" # on HuggingFace
 
         if os.path.exists(vector_db_dir):
             embeddings = HuggingFaceEmbeddings(model_name=embedding_model)
             print("Loading existing FAISS index...")
             vector_db = FAISS.load_local(vector_db_dir, embeddings, allow_dangerous_deserialization=True)
         else:
+            df = preprocess_data(data_path)
             vector_db = build_vector_store(df, embedding_model, vector_db_dir)
 
         retriever = vector_db.as_retriever(search_kwargs={"k": top_k, "score_threshold": score_threshold})

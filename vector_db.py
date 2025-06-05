@@ -3,19 +3,19 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.schema import Document
 from langchain_community.vectorstores.utils import DistanceStrategy
+from datasets import load_dataset
 import pandas as pd
 import time
-import os
 import warnings
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-def preprocess_data(data_dir):
-    if not os.path.exists(data_dir):
-        raise FileNotFoundError("Download dataset and place in data_dir")
-    df = pd.read_csv(data_dir)
-    df = df.drop_duplicates(subset='Title', keep='first')
+def preprocess_data(data_path):
 
+    ds = load_dataset(data_path)
+    df = pd.DataFrame(ds["train"])
+
+    df = df.drop_duplicates(subset='Title', keep='first')
     df = df[["Release Year", "Title", "Director", "Cast", "Genre", "Plot"]].dropna()
 
     df["Release Year"] = pd.to_numeric(df["Release Year"], errors='coerce')
