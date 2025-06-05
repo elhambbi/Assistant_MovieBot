@@ -40,7 +40,7 @@ class MovieBot:
         custom_prompt = PromptTemplate(
             input_variables=["chat_history", "question", "context"],
             template=
-            """<start_of_turn>system
+            """System:
             You are a helpful movie assistant. Answer questions using ONLY the provided Context from movie plots and metadata.
             If you don't know the answer, say so. Keep answers concise. Include relevant movie titles and years.
             If the question is about something other than movies, politely remind that you are a movie assistant and you can only help with this.
@@ -51,12 +51,11 @@ class MovieBot:
             {context}
 
             Current conversation:
-            {chat_history}<end_of_turn>
+            {chat_history}
 
-            <start_of_turn>user
-            {question}<end_of_turn>
+            Human:
+            {question}
 
-            <start_of_turn>model
             """
         )
 
