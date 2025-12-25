@@ -1,18 +1,29 @@
-faiss-cpu==1.11.0
-huggingface-hub==0.30.2
-langchain==0.3.25
-langchain-community==0.3.23
-langchain-core==0.3.58
-langchain-huggingface==0.1.2
-langchain-ollama==0.3.2
-langchain-text-splitters==0.3.8
-langsmith==0.3.42
-numpy==2.2.4
-ollama==0.4.8
-pandas==2.2.3
-sentence-transformers==4.1.0
-tokenizers==0.21.1
-torch==2.7.0
-transformers==4.51.3
-gradio==5.32.0
-datasets==3.6.0
+# FastAPI and web framework
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+python-multipart>=0.0.6
+pydantic>=2.0.0
+
+# UI
+gradio>=4.0.0
+
+# LangChain ecosystem
+langchain>=0.1.0
+langchain-core>=0.1.0
+langchain-community>=0.0.10
+langchain-ollama>=0.1.0
+
+# Vector store and embeddings
+faiss-cpu>=1.7.4  # Use faiss-gpu if CUDA available
+sentence-transformers>=2.2.0
+
+# Optional GPU acceleration (comment out if not using)
+# vllm>=0.3.0  # Requires CUDA, metal support for optimization
+
+# Data processing
+pandas>=1.5.0
+PyYAML>=6.0
+datasets>=2.14.0  # For HuggingFace dataset loading
+
+# Logging and monitoring
+python-dotenv>=1.0.0
